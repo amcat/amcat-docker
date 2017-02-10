@@ -1,0 +1,21 @@
+amcat:
+  build: ./amcat/
+  expose:
+    - "8000"
+  links:
+    - postgres:postgres
+    - redis:redis
+    - rabbit:rabbit
+    - elastic:elastic
+  volumes:
+    - /home/wva/amcat-docker/amcat/etc:/etc/amcat
+  ports:
+    - "8000:8000"
+postgres:
+  image: postgres:9.5
+redis:
+  image: redis
+rabbit:
+  image: rabbitmq:3-management
+elastic:
+  build: ./elastic/
