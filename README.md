@@ -37,6 +37,7 @@ This sets up elastic 2.4 with the plugins and scripts needed for AmCAT.
 # Todo
 
 - Allow username/host to be specified in amcat.ini file
-- Built in check to wait for postgres / elastic to come online
-- Use nginx (or some other proper webserver) instead of runserver?
+- Build in check to wait for postgres / elastic to come online
+- Put postgres data in external volume for persistence and maybe backup
+- Use nginx (or some other proper webserver) instead of runserver? (and share static volume)
 - Find a better way to distribute this than asking users to clone + run compose?
