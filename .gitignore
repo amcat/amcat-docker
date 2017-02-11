@@ -1,0 +1,11 @@
+# Emacs meuk 
+*~
+\#*\#
+.\#*
+
+# Vim cruft
+*.sw[op]
+
+# PyCharm meuk
+.idea
+
