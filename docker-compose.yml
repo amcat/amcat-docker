@@ -1,5 +1,5 @@
 amcatworker:
-  build: ./amcat/
+  image: amcat/amcat-docker
   links:
     - postgres:postgres
     - redis:redis
@@ -9,7 +9,7 @@ amcatworker:
     - amcat
   command: python3 -m amcat.manage celery worker -Q amcat -l INFO
 amcat:
-  build: ./amcat/
+  image: amcat/amcat-docker
   expose:
     - "8000"
   links:
@@ -30,4 +30,4 @@ rabbit:
   image: rabbitmq:3-management
   hostname: amcatrabbit
 elastic:
-  build: ./elastic/
+  image: amcat/amcat-elastic-docker
