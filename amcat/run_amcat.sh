@@ -1,6 +1,6 @@
 # wait for elastic and postgres
 set -e
-python3 /etc/amcat/wait_services.py
+python3 wait_services.py
 if ! (psql -h postgres -U postgres -lqtA | grep -q "^amcat|"); then
     createdb -h postgres -U postgres amcat
 fi

@@ -15,4 +15,6 @@ RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; 
 # Install static files
 RUN apt-get install -y nodejs-legacy npm && npm install -g bower && cd /amcat && bower --allow-root install
 
-CMD bash /etc/amcat/run_amcat.sh
+COPY run_amcat.sh wait_services.py create_superuser.py ./
+
+CMD bash run_amcat.sh

@@ -1,5 +1,5 @@
 from configparser import ConfigParser
-import socket, errno, logging, time
+import socket, errno, logging, time, os
 
 def wait(host, port):
     """
@@ -21,7 +21,7 @@ def wait(host, port):
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s %(name)-12s %(levelname)-5s] %(message)s')
               
 config = ConfigParser()
-config.read('/etc/amcat/amcat.ini')
+config.read(['/amcat.ini', '/etc/amcat/amcat.ini', os.path.expanduser('~/.amcat.ini')])
 logging.info(config.sections())
 wait(host=config.get('database', 'host', fallback='localhost'),
      port=config.get('database', 'port', fallback=5432))
