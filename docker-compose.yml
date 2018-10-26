@@ -1,5 +1,5 @@
 amcatworker:
-  image: amcat/amcat-docker
+  build: "amcat/"
   links:
     - postgres:postgres
     - redis:redis
@@ -9,7 +9,7 @@ amcatworker:
     - amcat
   command: python3 -m amcat.manage celery worker -Q amcat -l INFO
 amcat:
-  image: amcat/amcat-docker
+  build: "amcat/"
   expose:
     - "8000"
   links:
